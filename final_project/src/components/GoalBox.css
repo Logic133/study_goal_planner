@@ -1,0 +1,166 @@
+/* === GoalBox Container === */
+.goalbox-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.goalbox-header {
+    margin-bottom: 40px;
+}
+
+.goalbox-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.goalbox-header p {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Options container */
+.option-boxes {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each option card */
+.option {
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1 1 220px; /* shrinkable on small screens */
+}
+
+.option:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.option h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.option p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Back button */
+.back-btn {
+    margin-top: 40px;
+    padding: 12px 24px;
+    background: #ff4757;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #e84118;
+}
+
+/* =================== RESPONSIVE =================== */
+
+/* Tablets / medium screens */
+@media (max-width: 1024px) {
+    .goalbox-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .goalbox-header p {
+        font-size: 0.95rem;
+    }
+
+    .option {
+        width: 220px;
+        padding: 20px;
+    }
+}
+
+/* Mobile landscape / small tablets */
+@media (max-width: 768px) {
+    .goalbox-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .goalbox-header p {
+        font-size: 0.9rem;
+    }
+
+    .option-boxes {
+        gap: 20px;
+    }
+
+    .option {
+        width: 45%; /* 2 per row */
+        padding: 18px;
+    }
+
+    .back-btn {
+        padding: 10px 22px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile portrait / small phones */
+@media (max-width: 480px) {
+    .goalbox-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .goalbox-header p {
+        font-size: 0.85rem;
+    }
+
+    .option-boxes {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .option {
+        width: 90%; /* full width for single column */
+        padding: 16px;
+    }
+
+    .option h2 {
+        font-size: 1.2rem;
+    }
+
+    .option p {
+        font-size: 0.85rem;
+    }
+
+    .back-btn {
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,365 @@
+/* =========================
+   Goals Page Container
+   ========================= */
+.goals-page {
+  padding: 70px 20px 80px 20px; /* header + bottom padding */
+  min-height: calc(100vh - 150px);
+  background-color: #f5f7fa;
+  box-sizing: border-box;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   No goals message
+   ========================= */
+.no-goals-today {
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* =========================
+   Section Titles
+   ========================= */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #667eea;
+}
+
+.completed-section .section-title {
+  border-bottom-color: #82db85;
+  color: #82db85;
+}
+
+.upcoming-section .section-title {
+  color: #ffc107;
+}
+
+/* =========================
+   Goals Container
+   ========================= */
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.goals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.completed-list {
+  opacity: 0.8;
+}
+
+/* =========================
+   Goal Card Styles
+   ========================= */
+/* =========================
+   Goal Card Layout Fix
+   ========================= */
+.goal-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  /* transition: transform 0.2s, box-shadow 0.2s; */
+  border-left: 5px solid #667eea;
+  gap: 12px;
+}
+
+.goal-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* full width minus buttons */
+  min-width: 0;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.goal-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  align-self: flex-start; /* ensures top alignment with content */
+}
+
+
+
+
+.goal-card.active { border-left-color: #667eea; }
+.goal-card.recurring { border-left-color: #28a745; }
+.goal-card.onetime { border-left-color: #6c757d; }
+.goal-card.upcoming { border-left-color: #ffc107; opacity: 0.85; }
+.goal-card.completed { border-left-color: #82db85; background-color: #f0fff4; opacity: 0.95; }
+
+.goal-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.goal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.goal-card.completed .goal-title { text-decoration: line-through; color: #666; }
+
+.goal-duration {
+  background: #667eea;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.goal-card.completed .goal-duration { background: #82db85; }
+
+.goal-desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+  cursor: pointer;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.goal-desc.collapsed {
+  max-height: 2.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+}
+
+.goal-desc.expanded { max-height: none; }
+
+.read-more {
+  color: #667eea;
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+
+.read-more:hover { opacity: 0.85; }
+
+/* Completion info */
+.completion-info {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #28a745;
+  border: 1px solid #e9ecef;
+}
+
+/* =========================
+   Goal Buttons
+   ========================= */
+.goal-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.goal-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.edit-btn {
+  background-color: #8ed4df;
+  color: #fff;
+}
+
+.edit-btn:hover { background-color: #7bc4d0; }
+
+.done-btn {
+  background-color: #82db85;
+  color: #fff;
+}
+
+.done-btn:hover { background-color: #70c973; }
+
+.delete-btn {
+  background-color: #f52617;
+  color: #fff;
+}
+
+.delete-btn:hover { background-color: #d42014; }
+
+.skip-btn {
+  background-color: #6c757d;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.skip-btn:disabled { opacity: 0.7; }
+
+/* =========================
+   Congrats Overlay
+   ========================= */
+.congrats-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.congrats-content {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popIn 0.5s ease-out;
+}
+
+.congrats-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.congrats-subtext {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================
+   Flowers Animation
+   ========================= */
+.flowers-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.flower {
+  position: absolute;
+  font-size: 1.3rem;
+  top: -50px;
+  animation: fallFlower linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes fallFlower {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+@media (max-width: 768px) {
+  .goal-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .goal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .goal-duration {
+    align-self: flex-start;
+  }
+
+  .goal-actions {
+    align-self: flex-end;
+    margin-left: 0;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .goals-page { padding: 70px 15px 15px 15px; }
+
+  .goal-card { padding: 12px 14px; }
+
+  .goal-actions { gap: 4px; }
+
+  .goal-btn { padding: 5px 8px; font-size: 0.8rem; }
+
+  .congrats-text { font-size: 1.8rem; }
+  .congrats-subtext { font-size: 1rem; }
+
+  .flower { font-size: 1.1rem; }
+}

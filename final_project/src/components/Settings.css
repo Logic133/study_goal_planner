@@ -1,0 +1,229 @@
+/* ✅ Global Theme Variables */
+:root {
+  --primary-color: #667eea;
+  --success-color: #48bb78;
+  --danger-color: #e53e3e;
+  --warning-color: #ed8936;
+  --bg-color: #ffffff;
+  --text-color: #2d3748;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --header-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --input-bg: #ffffff;
+  --shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --hover-bg: #f7fafc;
+}
+
+/* ✅ Apply global styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* ✅ Settings Page Specific */
+.settings-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: calc(100vh - 70px);
+  background-color: var(--bg-color);
+  
+}
+
+.settings-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px 0;
+}
+
+.settings-header h1 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+  font-size: 2.8rem;
+}
+
+.settings-header p {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.setting-section {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  min-height: 200px;
+}
+
+.setting-section h3 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.setting-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* ✅ Toggle Switch */
+.toggle-section {
+  margin-top: 20px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 15px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.toggle-label:hover {
+  background: var(--hover-bg);
+}
+
+.toggle-text {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e2e8f0;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--success-color);
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-help {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  padding: 0 15px;
+}
+
+
+
+
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 20px 15px;
+  }
+  
+  .settings-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .setting-section {
+    padding: 20px;
+    min-height: 180px;
+  }
+  
+  .setting-section h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-page {
+    padding: 15px 10px;
+  }
+  
+  .settings-header {
+    margin-bottom: 30px;
+    padding: 20px 0;
+  }
+  
+  .settings-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .settings-header p {
+    font-size: 1rem;
+  }
+  
+  .setting-section {
+    padding: 15px;
+    min-height: 160px;
+  }
+  
+  .toggle-label {
+    padding: 12px;
+  }
+  
+  .toggle-switch {
+    width: 50px;
+    height: 28px;
+  }
+  
+  .toggle-slider:before {
+    height: 22px;
+    width: 22px;
+  }
+  
+  .toggle-input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+  }
+}

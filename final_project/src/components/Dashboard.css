@@ -1,0 +1,433 @@
+/* === PERFECT FULL HEIGHT + SCROLL FIX === */
+.dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f8ff, #f8fbff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: calc(90px + env(safe-area-inset-bottom)); /* ✅ accounts for iPhone safe area */
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto; /* ✅ enable scrolling */
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+/* Make sure html and body allow scroll too */
+html,
+body {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* ✅ smooth scroll for iPhones */
+}
+
+/* Ensure parent containers don’t restrict height */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header section */
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3b4cc0;
+  margin-bottom: 10px;
+}
+
+.dashboard-quote {
+  font-size: 1.2rem;
+  color: #5a6c9b;
+  font-style: italic;
+  max-width: 800px;
+}
+
+/* Status boxes */
+.status-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.circle.completed {
+  background: #34d399;
+}
+
+.circle.pending {
+  background: #cf3e33;
+}
+
+.status-label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+/* Dashboard card */
+.dashboard-card {
+  width: 90%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.dashboard-card h3 {
+  font-size: 1.5rem;
+  color: #4f6af0;
+  margin-bottom: 25px;
+}
+
+/* === DASHBOARD SPECIFIC ACTIVE GOALS STYLING - 2 CARDS PER ROW === */
+.dashboard-card .goals-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.dashboard-card .goal-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+  margin: 0 auto;
+  /* ✅ Removed hover and transition */
+}
+
+/* ✅ No hover scaling or movement */
+.dashboard-card .goal-card:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-color: #e2e8f0;
+}
+
+/* Goal header - Title left, Date right */
+.dashboard-card .goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.dashboard-card .goal-title {
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  flex: 1;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.dashboard-card .goal-date {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+/* Goal details - Duration at bottom */
+.dashboard-card .goal-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.dashboard-card .goal-duration {
+  background: #7c93e6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Create button */
+.btn-create-goal {
+  background: #5b7cfa;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(91, 124, 250, 0.3);
+}
+
+.btn-create-goal:hover {
+  background: #4c6ef5;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(91, 124, 250, 0.4);
+}
+
+/* No goals text */
+.no-goals-text {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin: 30px 0;
+  font-style: italic;
+}
+
+/* Dashboard.css - Add these styles */
+.status-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.status-box {
+  text-align: center;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto 10px;
+}
+
+.circle.completed {
+  background: #28a745;
+  color: white;
+}
+
+.circle.pending {
+  background: #f44130;
+  color: black;
+}
+
+.status-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.no-goals-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.no-goals-text {
+  font-size: 18px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.no-goals-subtext {
+  color: #666;
+  font-size: 14px;
+}
+
+.goal-type {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.goal-time {
+  background: #e7f3ff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.today-date {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* =================== RESPONSIVE =================== */
+
+/* Tablets / small laptops */
+@media (max-width: 1024px) {
+  .dashboard-card {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .goals-list {
+    grid-template-columns: 1fr 1fr; /* keep 2 per row but smaller */
+    gap: 15px;
+  }
+
+  .status-container {
+    gap: 30px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .dashboard-quote {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets / mobile landscape */
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-quote {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .status-container {
+    gap: 25px;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.4rem;
+  }
+
+  .dashboard-card {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .goals-list {
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 20px;
+  }
+
+  .goal-card {
+    min-height: 120px;
+    padding: 18px;
+  }
+
+  .btn-create-goal {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* 📱 MOBILE FIX — prevent goal cards from overflowing */
+@media (max-width: 480px) {
+  .dashboard-page {
+    padding: 70px 10px 90px 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    margin: 0 auto;
+  }
+
+  .goals-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .goal-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  .goal-header {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .goal-title {
+    font-size: 0.95rem;
+  }
+
+  .goal-type,
+  .goal-time {
+    font-size: 0.85rem;
+  }
+
+  .btn-create-goal {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+  }
+}

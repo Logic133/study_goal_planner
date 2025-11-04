@@ -1,0 +1,194 @@
+/* Login.css */
+
+.auth-container {
+  margin-top: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Login Method Toggle */
+.login-method-toggle {
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.toggle-btn:not(.active):hover {
+  background-color: #e9ecef;
+}
+
+/* Input Fields */
+.auth-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Mobile Input Container */
+.mobile-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-input-container input {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.otp-btn {
+  padding: 12px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.otp-btn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.otp-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* OTP Input Container */
+.otp-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.otp-input-container input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.resend-otp-btn {
+  padding: 12px 15px;
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.resend-otp-btn:hover:not(:disabled) {
+  background-color: #138496;
+}
+
+.resend-otp-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Login Buttons */
+.login-btn, .verify-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 15px;
+}
+
+.login-btn:hover:not(:disabled), .verify-btn:hover:not(:disabled) {
+  background-color: #0069d9;
+}
+
+.login-btn:disabled, .verify-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Links */
+.auth-container p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.auth-container a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .mobile-input-container,
+  .otp-input-container {
+    flex-direction: column;
+  }
+  
+  .otp-btn,
+  .resend-otp-btn {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
